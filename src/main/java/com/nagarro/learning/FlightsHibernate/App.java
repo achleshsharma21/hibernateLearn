@@ -6,12 +6,12 @@ import java.util.Scanner;
 
 public class App {
 	public static void main(String[] args) throws IOException, InterruptedException {
+		@SuppressWarnings("resource")
 		Scanner sc=new Scanner(System.in);
 		Thread thread=new Thread(new Resolver());
 		thread.setDaemon(true);
 		thread.start();
 		Thread.sleep(3000);
-//		FlightController flightControl = new FlightController();
 		InputData ip=new InputData();
 		System.out.println("Enter the DEPARTURE Location.");
 		ip.setDepartureLocation(sc.next().toUpperCase());
@@ -22,12 +22,12 @@ public class App {
 		System.out.println("Enter the Flight Class");
 		ip.setFlightClass(sc.next().toUpperCase());
 		System.out.println("Enter the output preference:");
-		System.out.println("Enter 1 for Sort by Fare and 2 for Sort by both fare and duration.");
+		System.out.println("Enter 'F' to Sort by Fare and 'B' for Sort by both fare and duration.");
 		ip.setOutputPreference(sc.next());
 		List<FlightModel> mainList = DataBase.getFlightAccordingToUSer(ip);
 		for(FlightModel obj:mainList)
 		{
-			System.out.println(obj);
+			OutputData.dataOutput(obj);
 		}
 	}
 }

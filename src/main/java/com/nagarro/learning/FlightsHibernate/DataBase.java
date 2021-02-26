@@ -29,7 +29,7 @@ public class DataBase {
 	public static List<FlightModel> getFlightAccordingToUSer(InputData fsi) {
 		 session.getTransaction().begin();
 		
-		 String orderby = fsi.getOutputPreference().equalsIgnoreCase("F") ? "FLIGHT_FARE" : "FLIGHT_FARE, FLIGHT_DUR";
+		 String orderby = fsi.getOutputPreference().equalsIgnoreCase("F") ? "B" : "FLIGHT_FARE, FLIGHT_DUR";
 		
 		 Query query = session.createQuery("select fd from FlightModel fd where SEAT_AVAIL = 'Y' and "
 		 + "FLIGHT_CLASS like '%" + fsi.getFlightClass() + "%' and " + "DEP_LOC = :depLoc and "

@@ -1,7 +1,5 @@
 package com.nagarro.learning.FlightsHibernate;
 
-import java.util.Scanner;
-
 public class InputData {
 	private String departureLocation;
 	private String arrivalLocation;
